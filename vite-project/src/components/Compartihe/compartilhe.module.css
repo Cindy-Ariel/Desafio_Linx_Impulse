@@ -1,0 +1,22 @@
+.box_compartilhe {
+  height: 200px;
+  max-width: 100%;
+  justify-content: center;
+  /* background-color: rgb(231, 176, 139); */
+
+  display: inline-grid;
+  align-items: center;
+}
+
+.tituto_compartilha {
+    font: normal normal normal 24px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #888888;
+    text-align: center;
+}
+
+.input_compartilha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
