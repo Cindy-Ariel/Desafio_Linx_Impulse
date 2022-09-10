@@ -7,8 +7,13 @@ export function Compartilhe() {
       <h1 className={S.tituto_compartilha}>Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</h1>
 
       <div className={S.input_compartilha}>
-        <Input nome="Nome do seu amigo:" />
-        <Input nome="E-mail" />
+        <div className={S.input}>
+          <Input nome="Nome do seu amigo:" />
+        </div>
+        <div className={S.input}>
+          <Input nome="E-mail" />
+        </div>
+
       </div>
 
     </div>
