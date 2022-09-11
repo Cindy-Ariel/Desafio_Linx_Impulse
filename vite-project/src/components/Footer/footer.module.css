@@ -1,11 +1,9 @@
 .footer{
-
   max-width: 100%;
   width: 100%;
   height: 350px;
   opacity: 1;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
   padding: 97px 104px;
@@ -14,37 +12,19 @@
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: bottom;
-  /* position: absolute; */
   bottom: 0;
-  background-color: brown;
 
-    /* width: 100%; 
-    max-width: 100%;
-    border: 1px solid #707070;
-    opacity: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    padding: 97px 104px;
-  
-    background-image: url("../../img/bg-footer.svg");
-    background-repeat: no-repeat; */
 }
 .box_titulo_footer{
   width: 341px;
 height: 232px;
    display: flex;
-   /* text-align: center; */
-   background-color: rgb(64, 33, 177);
    align-items: center;
    justify-content: center;
    text-align: center;
    
-
 }
 
 .titulo_footer{
   font-size: 15px;
-  background-color: aliceblue;
 }
