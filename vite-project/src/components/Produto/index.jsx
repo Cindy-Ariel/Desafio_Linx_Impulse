@@ -3,11 +3,11 @@ import { Botao } from '../Button'
 
 export function Produto(props) {
   const {
-    nomeProduto, descricaoProduto, precoAnteriorProduto, precoProduto, parcelamentoProduto, nomeBotao,
+    nomeProduto, descricaoProduto, precoAnteriorProduto, precoProduto, parcelamentoProduto, image,
   } = props
   return (
     <div className={S.box_produto}>
-      <img className={S.img_produto} src="imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6829158" alt="" />
+      <img className={S.img_produto} src={image} alt={descricaoProduto} />
       <h1 className={S.nome_produto}>
         {nomeProduto}
       </h1>
@@ -15,11 +15,22 @@ export function Produto(props) {
         {descricaoProduto}
         <br />
         <br />
+        De:R$
         {precoAnteriorProduto}
       </p>
-      <h3 className={S.preco_produto}>{precoProduto}</h3>
-      <p className={S.descricao_produto}>{parcelamentoProduto}</p>
-      <Botao aoClicar={() => console.log('comprei')} nome={nomeBotao} />
+      <h3 className={S.preco_produto}>
+        Por: R$
+        {' '}
+        {precoProduto}
+      </h3>
+      <p className={S.descricao_produto}>
+        ou 2x de R$
+        {' '}
+        {parcelamentoProduto}
+      </p>
+      <div className={S.botao}>
+        <Botao nome="Comprar" />
+      </div>
 
     </div>
 
