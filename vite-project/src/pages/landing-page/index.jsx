@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import React, { useState, useEffect } from 'react';
 import { Produto } from '../../components/Produto'
 import { Header } from '../../components/Header'
@@ -8,7 +7,6 @@ import { TextoPrincipal } from '../../components/TextoPrincipal'
 import { Botao } from '../../components/Button';
 import { Compartilhe } from '../../components/Compartihe';
 import { Footer } from '../../components/Footer';
-// import { page1 } from '../../mock/mock'
 
 function LandingPage() {
   const [pArray, setpArray] = useState([])
