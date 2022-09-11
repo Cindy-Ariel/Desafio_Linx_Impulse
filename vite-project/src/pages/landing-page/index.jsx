@@ -1,4 +1,5 @@
 // import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Produto } from '../../components/Produto'
 import { Header } from '../../components/Header'
 import { Inscricao } from '../../components/Inscricao'
@@ -7,11 +8,39 @@ import { TextoPrincipal } from '../../components/TextoPrincipal'
 import { Botao } from '../../components/Button';
 import { Compartilhe } from '../../components/Compartihe';
 import { Footer } from '../../components/Footer';
+// import { page1 } from '../../mock/mock'
 
 function LandingPage() {
-  // const [count, setCount] = useState(0)
+  const [pArray, setpArray] = useState([])
+  const [pagina, setPagina] = useState(1)
+  const url = `https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=${pagina}`
+
+  async function getApi() {
+    const data = await fetch(url)
+    const jsonData = await data.json()
+    setpArray([...pArray, ...jsonData.products])
+    setPagina(pagina + 1)
+  }
+
+  useEffect(() => {
+    getApi()
+  }, [])
+
+  const arrayDeProdutos = pArray.map((item) => (
+
+    <Produto
+      key={item.id}
+      nomeProduto={item.name}
+      descricaoProduto={item.description}
+      precoAnteriorProduto={item.oldPrice}
+      precoProduto={item.price}
+      parcelamentoProduto={item.installments.count}
+      image={item.image}
+    />
+  ))
 
   return (
+
     <div className={S.app}>
 
       <Header />
@@ -21,77 +50,17 @@ function LandingPage() {
           <TextoPrincipal />
           <Inscricao />
         </div>
+
+        <div className={S.titulo_produtos}>
+          <h1>Sua seção especial</h1>
+        </div>
+
         <div className={S.main_products}>
-          <Produto
-            nomeProduto="Produto1"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 1"
-          />
-          <Produto
-            nomeProduto="Produto2"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 2"
-          />
-          <Produto
-            nomeProduto="Produto3"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 3"
-          />
-          <Produto
-            nomeProduto="Produto4"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 4"
-          />
-          <Produto
-            nomeProduto="Produto5"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 5"
-
-          />
-          <Produto
-            nomeProduto="Produto6"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 6"
-          />
-          <Produto
-            nomeProduto="Produto7"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 7"
-          />
-          <Produto
-            nomeProduto="Produto8"
-            descricaoProduto="Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata."
-            precoAnteriorProduto="R$12,00"
-            precoProduto="10,00"
-            parcelamentoProduto="ou 9x 1,50"
-            nomeBotao="comprar produto 8"
-          />
-
+          {arrayDeProdutos}
         </div>
 
         <div className={S.button}>
-          <Botao nome="Ainda mais produtos aqui!" />
+          <Botao largura="260px" altura="39px" aoClicar={() => { getApi() }} nome="Ainda mais produtos aqui!" />
         </div>
 
         <div className={S.compartihe}>
@@ -100,13 +69,13 @@ function LandingPage() {
         </div>
 
         <div className={S.button}>
-          <Botao nome="Enviar agora" />
+          <Botao largura="260px" altura="39px" nome="Enviar agora" />
         </div>
       </main>
-
       <Footer />
 
     </div>
+
   )
 }
 
