@@ -2,14 +2,11 @@
   height: 200px;
   width: 100%;
   justify-content: center;
-  /* background-color: rgb(231, 176, 139); */
-  padding: 30px 100px;
+  padding: 5px 62px;
   display: flex;
   align-items: center;
   gap:2em;
-  background-color: aquamarine;
   flex-direction: column;
-  
   
 }
 
@@ -22,14 +19,11 @@
 }
 
 .input_compartilha {
-  width: 100%;
-height: 51px;
-
+    width: 100%;
+    height: 51px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(43, 105, 199);
-
 }
 .input{
   width: 320px;
