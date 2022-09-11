@@ -8,7 +8,22 @@ export function Inscricao() {
       <Input nome="Seu nome:" />
       <Input nome="Email:" />
       <Input nome="CPF" />
-      <Botao aoClicar={() => console.log('envidado')} nome="Enviar" />
+
+      <div className={S.inputRadios}>
+
+        <div>
+          <input type="radio" name="webmaster" value="Masculino" />
+          <label htmlFor="Masculino"> Masculino</label>
+        </div>
+
+        <div>
+          <input type="radio" name="webmaster" value="Feminino" />
+          <label htmlFor="Feminino">Feminino </label>
+        </div>
+
+      </div>
+
+      <Botao nome="Enviar" />
     </div>
 
   )
