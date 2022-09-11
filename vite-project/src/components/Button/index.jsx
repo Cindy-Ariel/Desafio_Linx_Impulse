@@ -2,23 +2,13 @@ import S from './button.module.css';
 
 export function Botao(props) {
   const {
-    nome, aoClicar, largura, altura,
+    nome, aoClicar,
   } = props
   return (
     <div>
-      <button
-        className={S.button}
-        onClick={aoClicar}
-        type="button"
-        style={{
-          width: largura,
-          height: altura,
-        }}
-      >
+      <button className={S.button} onClick={aoClicar}>
         {nome}
       </button>
-
     </div>
-
   )
 }
